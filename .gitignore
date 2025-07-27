@@ -1,16 +1,58 @@
+# Audio files
+*.wav
+*.mp3
+*.flac
+*.ogg
+
+# Generated audio files
+static/output/
+songgen_out.wav
+
+# Python
 __pycache__/
-.ipynb_checkpoints
-/songgen/processing_songgen_old.py
-/songgen/xcodec_wrapper/xcodec_infer/ckpts/general_more/xcodec_hubert_general_audio_v2.pth
-/songgen/xcodec_wrapper/xcodec_infer/ckpts/requirement.txt
-/training/
-/jupyter
-/outputs
-/helpers
-/helpers/push_to_hub_scripts
-requirement.txt
-# setup.py
-/scripts
-/wandb
-/build
-songgen.egg-info
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Model files (if any)
+*.pth
+*.pt
+*.bin
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
