@@ -187,6 +187,54 @@ If you find our work helpful for your research, please consider giving a star тн
 
 ```
 
+# SongGen Web Interface
+
+A web interface for the SongGen AI model that generates songs from lyrics and descriptions.
+
+## Features
+
+- Generate songs from custom lyrics and descriptions
+- Modern, responsive UI built with Flask and Tailwind CSS
+- Real-time song generation with progress indication
+- Audio playback and download functionality
+
+## Setup
+
+1. Install the required dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+2. Run the Flask application:
+```bash
+python app.py
+```
+
+3. Open your web browser and navigate to:
+```
+http://localhost:5000
+```
+
+## Usage
+
+1. Enter your lyrics in the "Lyrics" text area
+2. Provide a description of the music style in the "Music Description" field
+3. Click "Generate Song" to create your song
+4. Once generated, you can play the song directly in the browser or download it
+
+## Requirements
+
+- Python 3.8 or higher
+- Flask
+- PyTorch
+- Transformers
+- SoundFile
+- NumPy
+
+## Note
+
+The first time you generate a song, the model will be downloaded automatically. This may take a few minutes depending on your internet connection.
+
 
 
 

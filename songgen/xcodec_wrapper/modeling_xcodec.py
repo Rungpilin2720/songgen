@@ -27,7 +27,7 @@ class XCodecModel(nn.Module):
         config_path = os.path.join(XCODEC_INFER_PATH ,'ckpts/general_more/config_hubert_general.yaml')
         config = OmegaConf.load(config_path)
         self.model = build_codec_model(config)
-        parameter_dict = torch.load(ckpt_path)
+        parameter_dict = torch.load(ckpt_path, map_location=torch.device('cpu'))
         self.model.load_state_dict(parameter_dict) 
         self.model.eval()
         self.num_codebooks = 8
