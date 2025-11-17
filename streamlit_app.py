@@ -130,4 +130,4 @@ with st.sidebar:
 
 # Footer
 st.markdown("---")
-st.markdown("🎵 SongGen AI - สร้างเพลงด้วย AI | Powered by Streamlit") 
+st.markdown("🎵 SongGen AI - สร้างเพลงด้วย AI | Powered by Streamlit")
