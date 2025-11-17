@@ -20,8 +20,8 @@ COPY . .
 # Create output directory
 RUN mkdir -p static/output
 
-# Expose port
+# Expose port (Railway will set PORT env var dynamically)
 EXPOSE 8000
 
-# Run the application
-CMD ["gunicorn", "--config", "gunicorn_config.py", "wsgi:app"] 
+# Run the application with PORT from environment variable
+CMD sh -c "gunicorn --bind 0.0.0.0:\${PORT:-8000} --workers 1 --worker-class sync --timeout 300 wsgi:app" 

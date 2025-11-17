@@ -1,5 +1,5 @@
 # Gunicorn configuration file
-bind = "0.0.0.0:8000"
+# Note: bind will be set via command line to use $PORT env var
 workers = 1  # Use 1 worker for this AI model
 worker_class = "sync"
 worker_connections = 1000
