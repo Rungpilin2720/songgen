@@ -4,6 +4,8 @@ __pycache__
 *.pyd
 .Python
 env
+venv
+.venv
 pip-log.txt
 pip-delete-this-directory.txt
 .tox
@@ -18,4 +20,13 @@ coverage.xml
 .mypy_cache
 .pytest_cache
 .hypothesis
-static/output/*.wav 
+static/output/*.wav
+*.wav
+songgen_out.wav
+songgen.egg-info/
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+*~ 

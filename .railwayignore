@@ -1,0 +1,30 @@
+# Ignore large files and directories for Railway build
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+*.log
+.git/
+.mypy_cache/
+.pytest_cache/
+.hypothesis/
+.coverage
+*.cover
+static/output/*.wav
+songgen_out.wav
+*.wav
+songgen.egg-info/
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Large model files (will be downloaded at runtime)
+songgen/xcodec_wrapper/xcodec_infer/ckpts/
+
