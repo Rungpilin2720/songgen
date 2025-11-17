@@ -11,13 +11,20 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-# Initialize the model
-ckpt_path = "LiuZH-19/SongGen_mixed_pro"
-device = "cuda:0" if torch.cuda.is_available() else "cpu"
-model = SongGenMixedForConditionalGeneration.from_pretrained(
-    ckpt_path,
-    attn_implementation='sdpa').to(device)
-processor = SongGenProcessor(ckpt_path, device)
+# Initialize the model (lazy loading)
+model = None
+processor = None
+
+def get_model():
+    global model, processor
+    if model is None:
+        ckpt_path = "LiuZH-19/SongGen_mixed_pro"
+        device = "cuda:0" if torch.cuda.is_available() else "cpu"
+        model = SongGenMixedForConditionalGeneration.from_pretrained(
+            ckpt_path,
+            attn_implementation='sdpa').to(device)
+        processor = SongGenProcessor(ckpt_path, device)
+    return model, processor
 
 # Create output directory if it doesn't exist
 os.makedirs('static/output', exist_ok=True)
@@ -33,6 +40,9 @@ def generate_song():
         lyrics = data.get('lyrics', '')
         description = data.get('description', '')
         music_type = data.get('music_type', '')
+
+        # Get model (lazy loading)
+        model, processor = get_model()
 
         # Generate the song
         model_inputs = processor(text=description, lyrics=lyrics)
@@ -61,4 +71,4 @@ if __name__ == '__main__':
     # Get port from environment variable (for deployment) or use default
     port = int(os.environ.get('PORT', 5001))
     # Run the app on all interfaces (0.0.0.0) and specified port
-    app.run(host='0.0.0.0', port=port, debug=False) 
+    app.run(host='0.0.0.0', port=port, debug=False)
