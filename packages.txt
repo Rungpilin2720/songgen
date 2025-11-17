@@ -1,9 +1,0 @@
-# Streamlit Cloud packages.txt
-# This file helps Streamlit Cloud install packages more efficiently
-
-streamlit
-torch
-transformers
-numpy
-soundfile
-
